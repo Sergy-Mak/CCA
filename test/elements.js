@@ -1,10 +1,11 @@
-const selectorGen = require ('../data/selectors.json').general;
+const selectorGen = require ('./../data/selectors.json').general;
 const expectedGen = require ('./../data/expected.json').general;
+const selectorCnt = require ('./../data/selectors.json').counter;
 
 describe('Complex Counter App', function () {
     describe('Getting to the page', function () {
         it('TC-001 Page title is Complex Counter App', function () {
-            browser.url('');
+            browser.url('https://likejean.github.io/homework-5/');
             const title = browser.getTitle();
             expect(title).toEqual('Complex Counter App');
         })
@@ -70,5 +71,37 @@ describe('Complex Counter App', function () {
             const actual = $(selectorGen.addCounterBtn).getText();
             expect(actual).toEqual(expectedGen.addCounterBtn);
         })
+    });
+    describe('Default Elements Counter exist', function () {
+        it('TC-016 Counter Name', function () {
+            const actual = $$(selectorCnt.counterName)[1].isDisplayed();
+            expect(actual).toEqual(true);
+        })
+        it('TC-017 Count Value', function () {
+            const actual = $(selectorCnt.countValue).isDisplayed();
+            expect(actual).toEqual(true);
+        })
+        it('TC-018 LLF', function () {
+            const actual = $(selectorCnt.lowerLimitField).isDisplayed();
+            expect(actual).toEqual(true);
+        })
+        it('TC-019 ULF', function () {
+            const actual = $(selectorCnt.upperLimitField).isDisplayed();
+            expect(actual).toEqual(true);
+        })
+        it('TC-020, TC-021 Default Sub & Add Buttons', function () {
+            //  const actual = $$(selectorCnt.blackBtn).map(el => el.isDisplayed());
+            const actual = $$(selectorCnt.blackBtn);
+            expect(actual).toBeDisplayed();
+        })
+        it('TC-021 Label for Default Value Field', function () {
+            const actual = $$(selectorGen.defaultValueFieldLabel)[$$(selectorGen.defaultValueFieldLabel).length-1].isDisplayed();
+            //$$('label')[$$('label').length-1]
+            expect(actual).toEqual(true);
+        })
+        // it('TC-022 Add Counter', function () {
+        //     const actual = $(selectorGen.addCounterBtn).isDisplayed();
+        //     expect(actual).toEqual(true);
+        // })
     });
 });
