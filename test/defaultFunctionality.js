@@ -1,6 +1,6 @@
 const selectorCnt = require ('../data/selectors.json').counter;
 const expectedDCF = require ('../data/expected.json').defaultCounterFunctionality;
-const inputNumber = require ('./../helpers/inputNumber');
+const inputNumber = require ('../helpers/inputNumber');
 
 describe('Default counter functionality', function () {
 
@@ -25,14 +25,14 @@ describe('Default counter functionality', function () {
         expect(result).toEqual(false);
     })
 
-    it('TC-0432 ULF accept 9', function () {
+    it('TC-043 ULF accept 9', function () {
         inputNumber('right', expectedDCF.inputMax);
         const result = $(selectorCnt.error).isDisplayed();
         expect(result).toEqual(false);
-    })
 
     /*
         it('TC-044 LLF = 1 and ULF = 1 gives 2 black buttons', function () {
+             browser.refresh();
             browser.pause(1000);
             //inputNumber('left', expectedDCF.inputMin);
             inputNumber('right', expectedDCF.inputMin);
