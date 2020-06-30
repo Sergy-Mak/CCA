@@ -115,12 +115,6 @@ describe('Complex Counter App', function () {
             expect(actual).toEqual(true);
         })
 
-        it('TC-020, TC-021 Default Sub & Add Buttons v1', function () {
-            //  const actual = $$(selectorCnt.blackBtn).map(el => el.isDisplayed());
-            const actual = $$(selectorCnt.blackBtn).filter(el => el.isDisplayed()).length;
-            expect(actual).toBeDisplayed();
-        })
-
         it('TC-020, TC-021  Default Sub Buttons && Add Buttons v1.1', function () {
             const actual = $$(selectorCnt.blackBtn).filter(el => el.isDisplayed()).length.toString();
             expect(actual).toEqual(expectedCnt.defaultNumberBlackBtn);
@@ -132,11 +126,10 @@ describe('Complex Counter App', function () {
             expect(actual).toEqual(true);
         })
 
-        // it('TC-022 Add Counter', function () {
-        //     const actual = $(selectorGen.addCounterBtn).isDisplayed();
-        //     expect(actual).toEqual(true);
-        // })
+
     });
+
+
 
     describe('Default Counter Elements value', function () {
 

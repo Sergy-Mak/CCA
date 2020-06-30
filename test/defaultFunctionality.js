@@ -1,7 +1,6 @@
-const selectorCnt = require('./../data/selectors.json').counter;
-const expectedDCF = require('./../data/expected.json').defaultCounterFunctionality;
-
-
+const selectorCnt = require ('../data/selectors.json').counter;
+const expectedDCF = require ('../data/expected.json').defaultCounterFunctionality;
+const inputNumber = require ('./../helpers/inputNumber');
 
 describe('Default counter functionality', function () {
 
@@ -13,7 +12,6 @@ describe('Default counter functionality', function () {
         expect(countValue).toEqual(expectedDCF.countValueTC040);
     })
 
-
     it('TC-041 Add 3 gives 2', function () {
         const button = $$(selectorCnt.blackBtn)[5];
         button.click();
@@ -21,29 +19,27 @@ describe('Default counter functionality', function () {
         expect(countValue).toEqual(expectedDCF.countValueTC041);
     })
 
-
     it('TC-042 LLF accept 1', function () {
-        const button = $(selectorCnt.lowerLimitField);
-        button.click();
-        const input = $(selectorCnt.lowerInputField);
-        input.click();
-        browser.keys('Backspace');
-        browser.keys(expectedDCF.inputMin);
-        const countValue = $(selectorCnt.countValue).getText();
-        expect(countValue).toEqual(expectedDCF.countValueTC041);
-    })
-
-
-    it('TC-042 LLF accept 1', function () {
-        const button = $(selectorCnt.lowerLimitField);
-        button.click();
-        const input = $(selectorCnt.lowerInputField);
-        input.click();
-        browser.keys('Backspace');
-        browser.keys(expectedDCF.inputMin);
-        const result = $(selectorCnt.errorMsg).isDisplayed();
+        inputNumber('left', expectedDCF.inputMin);
+        const result = $(selectorCnt.error).isDisplayed();
         expect(result).toEqual(false);
     })
+
+    it('TC-0432 ULF accept 9', function () {
+        inputNumber('right', expectedDCF.inputMax);
+        const result = $(selectorCnt.error).isDisplayed();
+        expect(result).toEqual(false);
+    })
+
+    /*
+        it('TC-044 LLF = 1 and ULF = 1 gives 2 black buttons', function () {
+            browser.pause(1000);
+            //inputNumber('left', expectedDCF.inputMin);
+            inputNumber('right', expectedDCF.inputMin);
+            const actual = $$(selectorCnt.blackBtn).filter(el => el.isDisplayed()).length;
+            expect(actual).toEqual(expectedDCF.countValueTC041);
+        })
+    */
 
 
 });
