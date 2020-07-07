@@ -8,6 +8,7 @@
     "defaultValueFieldLabel": "label",
     "addCounterBtn": ".btn-success"
   },
+
   "counter": {
     "counterName": "h3",
     "lowerLimitField": "[name='negative']",
@@ -21,6 +22,7 @@
     "editNameFieldLabel": "label",
     "blackBtn": ".btn-black",
     "errorMsg": ".alert"
+
   }
 }
 
