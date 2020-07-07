@@ -14,6 +14,7 @@ describe('Default counter functionality', function () {
 
     it('TC-041 Add 3 gives 2', function () {
         const button = $$(selectorCnt.blackBtn)[5];
+        //browser.pause(1000);
         button.click();
         const countValue = $(selectorCnt.countValue).getText();
         expect(countValue).toEqual(expectedDCF.countValueTC041);
@@ -34,12 +35,12 @@ describe('Default counter functionality', function () {
     })
 
 
-
+    //
     // it('TC-044 LLF = 1 and ULF = 1 gives 2 black buttons', function () {
     //     browser.refresh()
     //     browser.pause(1000);
-    //     inputNumber('left', expectedDCF.inputMin);
-    //     //inputNumber('right', expectedDCF.inputMin);
+    //     //inputNumber('left', expectedDCF.inputMin);
+    //     inputNumber('right', expectedDCF.inputMin);
     //     const actual = $$(selectorCnt.blackBtn).filter(el => el.isDisplayed()).length;
     //     expect(actual).toEqual(expectedDCF.countValueTC041);
     // })
@@ -68,7 +69,14 @@ describe('Default counter functionality', function () {
 
     })
 
+    it('TC-047 Default Counter Delete button works', function () {
+        $(selectorCnt.deleteBtn).click();
+        const result = $(selectorCnt.deleteBtn).isDisplayed();
+        expect(result).toEqual(false);
+    })
 
+
+    
 
 
 });
