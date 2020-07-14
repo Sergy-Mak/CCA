@@ -56,6 +56,10 @@ describe('Default counter functionality', function () {
         browser.pause(1000);
     })
 
+
+
+    
+
  */
 
     it('TC-046 Reset button works', function () {
